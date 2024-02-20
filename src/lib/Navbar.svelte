@@ -1,7 +1,32 @@
+<script>
+    import { onMount } from 'svelte';
+
+    let home = false;
+    let general = false;
+    let secret = false;
+
+    onMount(() => {
+        switch (window.location.href.split('/').pop()){
+            case 'general':
+                general = true;
+                break;
+            
+            case 'secret':
+                secret = true;
+                break;
+
+            default:
+                home = true;
+                break;
+        }
+    });
+</script>
+
 <nav>
-    <div class="nav-links">
-        <a href="/">Home</a>
-        <a href="/general">Obecná Poznávačka</a>
+    <a href="/" id="home" class="{home ? "a-home": "i-home"}"><img src="icons/HomeIcon.svg" alt="Home"></a>
+    <div id="links">
+        <a href="/general" id="general" class="{general ? "active": "inactive"}">Politika</a>
+        <a href="/secret" id="secret" class="{secret ? "active": "inactive"}">Tajemství</a>
     </div>
 </nav>
 
@@ -9,26 +34,58 @@
     nav {
         display: flex;
         justify-content: space-between;
+        flex-direction: row;
         align-items: center;
-        padding: 20px 40px;
-        background-color: #5333ed;
+        padding: 20px;
+        gap: 20px;
+        background-color: #363040;
+
+        height: auto;
+        border-bottom: 1px solid #636363;
     }
 
-    .nav-links a {
-        color: #fff;
+    #links {
+        display: flex;
+        gap: 20px;
+    }
+
+    #home{
+        mask: url(icons/HomeIcon.svg) no-repeat center;
+        mask-type: alpha;
+    }
+
+    #home img{
+        opacity: 0;
+    }
+
+    .i-home{
+        background-color: white;
+        transition: 0.2s ease-in-out;
+    }
+
+    .i-home:hover{
+        background-color: #F02461;
+    }
+    .a-home{
+        background-color: #F02461;
+    }
+
+    nav a {
+        color: white;
         text-decoration: none;
-        margin-right: 20px;
     }
 
-    .nav-links a:hover {
-        text-decoration: underline;
+    .active{
+        color: #F02461;
     }
 
-    @media (max-width: 700px) {
-        .nav-links {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+    .inactive {
+        color: white;
+
+        transition: 0.2s ease-in-out;
+    }
+
+    .inactive:hover{
+        color: #F02461;
     }
 </style>

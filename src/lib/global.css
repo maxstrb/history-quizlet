@@ -1,0 +1,30 @@
+body{
+    background-color: #32293B;
+
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    font-family: 'Inter', sans-serif;
+}
+
+h1{
+    color: #F7F7FF;
+    font-family: 'Inter', sans-serif;
+}
+
+h2{
+    color: #F7F7FF;
+    font-family: 'Inter', sans-serif;
+}
+
+a{
+    color: #F7F7FF;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+}
+
+p{
+    color: #F7F7FF;
+    font-family: 'Inter', sans-serif;
+}
