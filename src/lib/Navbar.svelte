@@ -4,6 +4,7 @@
     let home = false;
     let general = false;
     let secret = false;
+    let culture = false;
 
     onMount(() => {
         switch (window.location.href.split('/').pop()){
@@ -13,6 +14,10 @@
             
             case 'secret':
                 secret = true;
+                break;
+            
+            case 'culture':
+                culture = true;
                 break;
 
             default:
@@ -26,7 +31,8 @@
     <a href="/" id="home" class="{home ? "a-home": "i-home"}"><img src="icons/HomeIcon.svg" alt="Home"></a>
     <div id="links">
         <a href="/general" id="general" class="{general ? "active": "inactive"}">Politika</a>
-        <a href="/secret" id="secret" class="{secret ? "active": "inactive"}">Tajemství</a>
+        <a href="/culture" id="culture" class="{culture ? "active": "inactive"}">Kultura</a>
+        <a href="/reminder" id="secret" class="{secret ? "active": "inactive"}">Připomínka</a>
     </div>
 </nav>
 
